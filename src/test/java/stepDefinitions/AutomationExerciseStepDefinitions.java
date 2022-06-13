@@ -62,9 +62,94 @@ public class AutomationExerciseStepDefinitions {
     @Given("Verify that ACCOUNT DELETED! is visible")
     public void verify_that_account_deleted_is_visible() {
         //calişmiyor
+    }
 
+    @Given("Enter incorrect email address and password")
+    public void enter_incorrect_email_address_and_password() {
+        automationExercisePage.loginYourAccountEmailBox.sendKeys(ConfigReader.getProperty("autoExInvalidEmail"));
+        automationExercisePage.loginYourAccountPasswordBox.sendKeys(ConfigReader.getProperty("autoExValidPassword"));
+    }
+    @Given("Verify error Your email or password is incorrect is visible")
+    public void verify_error_your_email_or_password_is_incorrect_is_visible() {
+        Assert.assertTrue(automationExercisePage.emailOrPasswordIncorrectText.isDisplayed());
+
+    }
+    @Given("Verify New User Signup is visible")
+    public void verify_new_user_signup_is_visible() {
+    Assert.assertTrue(automationExercisePage.newUserSignupTextElement.isDisplayed());
+    }
+    @Given("Enter name and email address")
+    public void enter_name_and_email_address() {
+    actions.click(automationExercisePage.userNameElement)
+            .sendKeys(fakerName).sendKeys(Keys.TAB).sendKeys(fakerEmail).perform();
+
+    }
+    @Given("Click Signup button")
+    public void click_signup_button() {
+        automationExercisePage.signupButton.click();
+
+    }
+    @Given("Verify that ENTER ACCOUNT INFORMATION is visible")
+    public void verify_that_enter_account_information_is_visible() {
+     Assert.assertTrue(automationExercisePage.enterAccountInfoTextElement.isDisplayed());
+
+    }
+    @Given("Fill details: Title, Name, Email, Password, Date of birth")
+    public void fill_details_title_name_email_password_date_of_birth() {
+        actions.click(automationExercisePage.acountInfoMrRadioButton)
+                .sendKeys(Keys.TAB).sendKeys(Keys.TAB)
+                .sendKeys("15634")
+                .sendKeys(Keys.TAB).sendKeys("2")
+                .sendKeys(Keys.TAB).sendKeys("March")
+                .sendKeys(Keys.TAB).sendKeys("2019").perform();
 
 
     }
+    @Given("Select checkbox Sign up for our newsletter")
+    public void select_checkbox_sign_up_for_our_newsletter() {
+        automationExercisePage.newsletterCheckbox.click();
+
+    }
+    @Given("Select checkbox Receive special offers from our partners")
+    public void select_checkbox_receive_special_offers_from_our_partners() {
+        automationExercisePage.newsletterCheckbox2.click();
+
+    }
+    @Given("Fill details: First name, Last name, Company, Address, Address2, Country, State, City, Zipcode, Mobile Number")
+    public void fill_details_first_name_last_name_company_address_address2_country_state_city_zipcode_mobile_number() {
+        actions.sendKeys(Keys.TAB).sendKeys(faker.name().firstName())
+                .sendKeys(Keys.TAB).sendKeys(faker.name().lastName())
+                .sendKeys(Keys.TAB)
+                .sendKeys(Keys.TAB).sendKeys(faker.address().fullAddress())
+                .sendKeys(Keys.TAB)
+                .sendKeys(Keys.TAB).sendKeys("United States")
+                .sendKeys(Keys.TAB).sendKeys(faker.address().state())
+                .sendKeys(Keys.TAB).sendKeys(faker.address().country())
+                .sendKeys(Keys.TAB).sendKeys(faker.address().zipCode())
+                .sendKeys(Keys.TAB).sendKeys(faker.phoneNumber().cellPhone()).perform();
+    }
+    @Given("Click Create Account button")
+    public void click_create_account_button() {
+        actions.sendKeys(Keys.TAB).sendKeys(Keys.ENTER).perform();
+
+    }
+    @Given("Verify that ACCOUNT CREATED is visible")
+    public void verify_that_account_created_is_visible() {
+        Assert.assertTrue(automationExercisePage.acountCreatedTextBox.isDisplayed());
+
+    }
+    @Given("Click Continue button")
+    public void click_continue_button() {
+        automationExercisePage.acountCreatedContinueButton.click();
+
+    }
+    @Given("Verify that ACCOUNT DELETED! is visible and click Continue button")
+    public void verify_that_account_deleted_is_visible_and_click_continue_button() {
+        Assert.assertTrue(automationExercisePage.deleteAccountElement.isDisplayed());
+
+
+    }
+
+
 
 }

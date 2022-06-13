@@ -46,7 +46,7 @@ public class AutomationExercisePage {
     @FindBy(xpath = "//a[text()='Continue']")
     public WebElement acountCreatedContinueButton;
 
-    @FindBy(xpath = "//*[text()=' Logged in as ']")
+    @FindBy(xpath = "//input[@data-qa='signup-name']")
     public WebElement userNameElement;
 
     @FindBy(xpath = "//*[text()=' Delete Account']")
@@ -174,6 +174,8 @@ public class AutomationExercisePage {
 
     @FindBy(xpath = "//td[@class='cart_quantity']")
     public List<WebElement> cartTotalPriceElements;
+
+
 
 
 }

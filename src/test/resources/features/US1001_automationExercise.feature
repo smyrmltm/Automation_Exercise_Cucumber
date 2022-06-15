@@ -22,7 +22,7 @@ Feature:US1001 Automation Exercise
     And Click login button
     And Verify error Your email or password is incorrect is visible
 
- @aetc1
+  @aetc1
   Scenario:TC01 Register User
     Given Launch browser and Navigate to url "automationExerciseUrl"
     And Verify that home page is visible successfully
@@ -43,14 +43,24 @@ Feature:US1001 Automation Exercise
     And Verify that ACCOUNT DELETED! is visible and click Continue button
 
 
-   @aetc4
-   Scenario:TC 04 Logout User
-   And Launch browser and Navigate to url "automationExerciseUrl"
-   And Verify that home page is visible successfully
-   And Click on Signup Login button
-   And Verify Login to your account is visible
-   And Enter correct email address and password
-   And Click login button
-   And Verify that Logged in as username is visible
-   And Click Logout button
-   And Verify that user is navigated to login page
+  @aetc4
+  Scenario:TC04 Logout User
+    And Launch browser and Navigate to url "automationExerciseUrl"
+    And Verify that home page is visible successfully
+    And Click on Signup Login button
+    And Verify Login to your account is visible
+    And Enter correct email address and password
+    And Click login button
+    And Verify that Logged in as username is visible
+    And Click Logout button
+    And Verify that user is navigated to login page
+
+  @aetc5
+  Scenario: TC05  Register User with existing email
+    And Launch browser and Navigate to url "automationExerciseUrl"
+    And Verify that home page is visible successfully
+    And Click on Signup Login button
+    And Verify New User Signup is visible
+    And Enter name and already registered email address
+    And Click Signup button
+    And Verify error Email Address already exist is visible

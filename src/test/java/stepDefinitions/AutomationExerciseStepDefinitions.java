@@ -51,7 +51,7 @@ public class AutomationExerciseStepDefinitions {
 
     @Given("Verify that Logged in as username is visible")
     public void verify_that_logged_in_as_username_is_visible() {
-        Assert.assertTrue(automationExercisePage.userNameElement.isDisplayed());
+        Assert.assertTrue(automationExercisePage.loggedUserName.isDisplayed());
     }
 
     @Given("Click Delete Account button")
@@ -149,6 +149,18 @@ public class AutomationExerciseStepDefinitions {
 
 
     }
+    @Given("Click Logout button")
+    public void click_logout_button() {
+        automationExercisePage.logoutButton.click();
+
+    }
+    @Given("Verify that user is navigated to login page")
+    public void verify_that_user_is_navigated_to_login_page() {
+        Assert.assertFalse(automationExercisePage.logoutButton.isDisplayed());
+
+
+    }
+
 
 
 

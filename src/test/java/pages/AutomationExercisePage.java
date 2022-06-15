@@ -175,6 +175,9 @@ public class AutomationExercisePage {
     @FindBy(xpath = "//td[@class='cart_quantity']")
     public List<WebElement> cartTotalPriceElements;
 
+    @FindBy(xpath = "//a[text()=' Logged in as '] ")
+    public WebElement loggedUserName;
+
 
 
 
